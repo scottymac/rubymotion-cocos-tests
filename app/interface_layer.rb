@@ -10,12 +10,4 @@ class InterfaceLayer < CCLayer
     end
   end
 
-  def ccTouchesBegan (touches, withEvent:event)
-    CCMacros.CCLOG("TOUCHED")
-    # tileMap = self.getChildByTag ("25")
-    # touchLocation = self.locationFromTouch (touches.anyObject)
-    # tilePos = self.tilePosFromLocation (touchLocation, tileMap:tileMap)
-    # self.centerTileMapOnTileCoord (tilePos, tileMap:tileMap)
-  end
-
 end

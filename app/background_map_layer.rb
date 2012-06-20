@@ -1,11 +1,12 @@
-class BackgroundMapLayer < CCNode
+class BackgroundMapLayer < CCLayer
 
   def init
-    super.tap do |l|
+    super.tap do |me|
+      me.isTouchEnabled = true
       tileMap = CCTMXTiledMap.tiledMapWithTMXFile("my-map.tmx")
       @tileMapHeightInPixels = tileMap.mapSize.height * tileMap.tileSize.height / CCMacros.CC_CONTENT_SCALE_FACTOR
       @tileMapWidthInPixels = tileMap.mapSize.width * tileMap.tileSize.width / CCMacros.CC_CONTENT_SCALE_FACTOR
-      l.addChild(tileMap, z:-1, tag:25)
+      me.addChild(tileMap, z:-1, tag:25)
       CCMacros.CCLOG("Tilemap Size: #{@tileMapWidthInPixels} x #{@tileMapHeightInPixels}")
     end
   end
