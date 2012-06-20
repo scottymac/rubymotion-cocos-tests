@@ -1,4 +1,4 @@
-class GameplayLayer < CCLayer
+class GameplayLayer < CCNode
 
   def init
     super.tap do |me|

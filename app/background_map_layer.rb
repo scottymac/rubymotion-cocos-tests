@@ -1,4 +1,4 @@
-class BackgroundMapLayer < CCLayer
+class BackgroundMapLayer < CCNode
 
   def init
     super.tap do |l|
