@@ -1,12 +1,14 @@
 class BackgroundMapLayer < CCLayer
 
+  TILEMAP = 10
+
   def init
     super.tap do |me|
       me.isTouchEnabled = true
       tileMap = CCTMXTiledMap.tiledMapWithTMXFile("my-map.tmx")
       @tileMapHeightInPixels = tileMap.mapSize.height * tileMap.tileSize.height / CCMacros.CC_CONTENT_SCALE_FACTOR
       @tileMapWidthInPixels = tileMap.mapSize.width * tileMap.tileSize.width / CCMacros.CC_CONTENT_SCALE_FACTOR
-      me.addChild(tileMap, z:-1, tag:25)
+      me.addChild(tileMap, z:-1, tag:TILEMAP)
       CCMacros.CCLOG("Tilemap Size: #{@tileMapWidthInPixels} x #{@tileMapHeightInPixels}")
     end
   end
@@ -16,7 +18,7 @@ class BackgroundMapLayer < CCLayer
   end
 
   def ccTouchesBegan (touches, withEvent:event)
-    tileMap = self.getChildByTag ("25")
+    tileMap = self.getChildByTag (TILEMAP)
     touchLocation = self.locationFromTouch (touches.anyObject)
     tilePos = self.tilePosFromLocation (touchLocation, tileMap:tileMap)
     self.centerTileMapOnTileCoord (tilePos, tileMap:tileMap)
