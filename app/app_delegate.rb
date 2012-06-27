@@ -1,8 +1,10 @@
 class AppDelegate
   def application(application, didFinishLaunchingWithOptions:launchOptions)
-    
-   @window = UIWindow.alloc.initWithFrame UIScreen.mainScreen.bounds
-    
+
+    UIApplication.sharedApplication.setStatusBarHidden(true, animated: false)
+
+    @window = UIWindow.alloc.initWithFrame UIScreen.mainScreen.bounds
+
     glView = CCGLView.viewWithFrame @window.bounds,
       pixelFormat: KEAGLColorFormatRGB565,
       depthFormat: 0,
@@ -38,9 +40,13 @@ class AppDelegate
 
     CCTexture2D.PVRImagesHavePremultipliedAlpha true
 
+    @world = World.instance
+    @world.init_managers
+    #CCMacros.CCLOG("App Delegate: #{@world}")
+
     #@director.pushScene first_scene
     @director.runWithScene(GameScene.node)
-    
+
     true
 
   end

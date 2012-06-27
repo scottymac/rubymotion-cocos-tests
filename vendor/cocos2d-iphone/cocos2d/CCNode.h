@@ -177,7 +177,7 @@ enum {
 	// Used by CCLayer and CCScene
 	BOOL ignoreAnchorPointForPosition_;
 
-	BOOL isReorderChildDirty_;	
+	BOOL isReorderChildDirty_;
 }
 
 /** The z order of the node relative to its "siblings": children of the same parent */
@@ -290,6 +290,11 @@ enum {
 +(id) node;
 /** initializes the node */
 -(id) init;
+
+// My Addition
+
+-(void) update: (ccTime)delta;
+
 
 
 // scene managment

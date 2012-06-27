@@ -98,6 +98,8 @@ static NSUInteger globalOrderOfArrival = 1;
 	return [[[self alloc] init] autorelease];
 }
 
+-(void) update:(ccTime)delta {}
+
 -(id) init
 {
 	if ((self=[super init]) ) {
@@ -145,7 +147,7 @@ static NSUInteger globalOrderOfArrival = 1;
 		orderOfArrival_ = 0;
 
 		glServerState_ = CC_GL_BLEND;
-		
+
 		// set default scheduler and actionManager
 		CCDirector *director = [CCDirector sharedDirector];
 		self.actionManager = [director actionManager];

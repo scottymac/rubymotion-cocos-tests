@@ -8,6 +8,7 @@ class BackgroundMapLayer < CCLayer
       tileMap = CCTMXTiledMap.tiledMapWithTMXFile("my-map.tmx")
       @tileMapHeightInPixels = tileMap.mapSize.height * tileMap.tileSize.height / CCMacros.CC_CONTENT_SCALE_FACTOR
       @tileMapWidthInPixels = tileMap.mapSize.width * tileMap.tileSize.width / CCMacros.CC_CONTENT_SCALE_FACTOR
+      @tile_map_size = CGRectMake(0,0,@tileMapWidthInPixels,@tileMapHeightInPixels)
       me.addChild(tileMap, z:-1, tag:TILEMAP)
       CCMacros.CCLOG("Tilemap Size: #{@tileMapWidthInPixels} x #{@tileMapHeightInPixels}")
     end
